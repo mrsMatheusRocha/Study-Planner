@@ -16,7 +16,7 @@ function EmptyState({ onAddTask }) {
         <div className="flex justify-center mb-8">
           <div className={`w-20 h-20 border-2 border-dashed ${theme.isDark ? 'border-green-check' : 'border-purple-600'} rounded-lg flex items-center justify-center`}>
             <img 
-              src="../../assets/empty-file.png" 
+              src="/empty-file.png"
               alt="Empty state" 
               className={`w-12 h-12 ${theme.isDark ? 'opacity-60' : 'opacity-80'}`}
               style={{

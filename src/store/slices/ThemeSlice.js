@@ -24,7 +24,7 @@ export const selectTheme = (state) => {
   const isDarkTheme = state.theme.theme === 'dark';
   return {
     isDark: isDarkTheme,
-    background: isDarkTheme ? 'url(\'/src/assets/bg-dark.png\')' : 'url(\'/src/assets/bg-light.png\')',
+    background: isDarkTheme ? 'url(\'./bg-dark.png\')' : 'url(\'./bg-light.png\')',
     backgroundColor: isDarkTheme ? '#1f2937' : '#f3f4f6',
     cardBg: isDarkTheme ? 'bg-card-dark' : 'bg-white',
     textPrimary: isDarkTheme ? 'text-white' : 'text-gray-800',
