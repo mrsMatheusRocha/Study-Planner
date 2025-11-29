@@ -46,7 +46,7 @@ Clone o repositório e siga os passos abaixo:
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
 > Recomenda-se instalar a extensão [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) para acompanhar o gerenciamento de estado em tempo real.
