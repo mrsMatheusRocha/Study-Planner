@@ -1,101 +1,76 @@
-# Redux Study Project
+# 📅 Study Planner
 
-Este projeto tem como objetivo principal o estudo das principais funcionalidades do **Redux** e a integração com a extensão **Redux DevTools**.
-
-## Objetivo
-
-- Aprender e praticar os conceitos fundamentais do Redux: **Store**, **Actions**, **Reducers** e **Middleware**.
-- Integrar o Redux à uma aplicação React utilizando o pacote `react-redux`.
-- Utilizar o **Redux DevTools** para inspecionar, debugar e analisar o fluxo de estado da aplicação.
-
-## Estrutura do Projeto
-
-```
-redux-study/
-├── public/
-├── src/
-│   ├── store/
-│   │   ├── actions.js
-│   │   ├── reducers.js
-│   │   └── index.js
-│   ├── components/
-│   ├── App.js
-│   └── index.js
-├── package.json
-└── README.md
-```
-
-## Como executar
-
-1. **Instale as dependências**:
-
-   ```bash
-   npm install
-   ```
-
-2. **Execute a aplicação**:
-
-   ```bash
-   npm start
-   ```
-
-3. **Certifique-se de ter a extensão [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) instalada no seu navegador.**
-
-## Como o Redux está integrado
-
-- A Store foi criada com o suporte ao Redux DevTools usando:
-  ```js
-  const store = createStore(
-    rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
-  ```
-- Sempre que uma Action é disparada, você consegue visualizar e debugar usando a Extension Redux DevTools.
-
-## Exemplos de código
-
-**Actions**
-
-```js
-export const increment = () => ({ type: 'INCREMENT' });
-export const decrement = () => ({ type: 'DECREMENT' });
-```
-
-**Reducer**
-
-```js
-const initialState = { count: 0 };
-
-export function counterReducer(state = initialState, action) {
-  switch (action.type) {
-    case 'INCREMENT':
-      return { count: state.count + 1 };
-    case 'DECREMENT':
-      return { count: state.count - 1 };
-    default:
-      return state;
-  }
-}
-```
-
-**Store**
-
-```js
-import { createStore } from 'redux';
-import { counterReducer } from './reducers';
-
-export const store = createStore(
-  counterReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-```
-
-## Aprendizados Esperados
-
-- Manipulação do estado global com Redux
-- Integração e uso do Redux DevTools na rotina de desenvolvimento
-- Compreensão do fluxo unidirecional de dados em aplicações React/Redux
+Um organizador de estudos moderno, simples e eficiente, construído com **JavaScript** e bastante foco no gerenciamento de estados usando **Redux**.
 
 ---
 
-Sinta-se à vontade para modificar, criar novas Actions, Reducers, e explorar todo o potencial do Redux e do DevTools!
+## 🚀 Sobre o projeto
+
+O **Study Planner** é uma aplicação web pensada para ajudar estudantes a planejar, acompanhar e gerenciar suas atividades de estudo de forma intuitiva.  
+A principal característica deste projeto é o uso extensivo do **Redux**, garantindo que o gerenciamento de estado seja centralizado, previsível e fácil de debugar.
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+- **JavaScript** (97.8%) — Toda a lógica da aplicação, incluindo integração com Redux.
+- **Redux** — Gerenciamento global de estado e fluxo de informações entre componentes.
+- **HTML** (1.5%) — Estrutura da interface.
+- **CSS** (0.7%) — Estilização visual da aplicação.
+
+---
+
+## 🎯 Recursos e vantagens do uso do Redux
+
+- **Estado centralizado**: Todas as tarefas, metas, ciclos, filtros e configurações são controladas em uma única Store.
+- **Ações claras e rastreáveis**: O uso do Redux permite disparar ações específicas para modificar o estado de forma previsível.
+- **Facilidade para depurar**: Com Redux DevTools, todo o fluxo de dados pode ser visualizado e testado.
+- **Componentes desacoplados**: Os componentes da interface interagem via Redux, sem depender do estado local excessivo.
+
+---
+
+## ✅ Funcionalidades
+
+- Adicionar, editar e excluir tarefas de estudo
+- Marcar tarefas como concluídas ou pendentes
+- Visualizar o progresso do plano de estudo
+- Filtros para organização personalizada
+- Persistência do estado (opcional)
+- Integração com Redux DevTools para debugging
+
+---
+
+## 🏁 Como executar o projeto
+
+Clone o repositório e siga os passos abaixo:
+
+```bash
+npm install
+npm start
+```
+
+> Recomenda-se instalar a extensão [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) para acompanhar o gerenciamento de estado em tempo real.
+
+---
+
+## ✍️ Como o Redux foi aplicado
+
+Exemplo de estrutura de ações e reducers:
+
+```js
+// src/store/actions.js
+export const addTask = (task) => ({ type: 'ADD_TASK', payload: task });
+export const toggleTask = (id) => ({ type: 'TOGGLE_TASK', payload: id });
+
+// src/store/reducers.js
+const initialState = { tasks: [] };
+
+function tasksReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'ADD_TASK':
+      return { ...state, tasks: [...state.tasks, action.payload] };
+    case 'TOGGLE_TASK':
+      return {
+        ...state,
+        tasks: state.tasks.map(task =>
+          task.id === action.payload ? { ...task, done: !
